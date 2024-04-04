@@ -9,7 +9,10 @@ arch-install-scripts
 #archinstall
 #b43-fwcutter
 base
+#bcachefs-tools
 bind
+#bolt
+#brltty
 broadcom-wl-dkms
 btrfs-progs
 clonezilla
@@ -18,7 +21,7 @@ cryptsetup
 #darkhttpd
 ddrescue
 dhclient
-#dhcpcd
+dhcpcd
 diffutils
 dmidecode
 dmraid
@@ -32,6 +35,7 @@ ethtool
 exfatprogs
 f2fs-tools
 fatresize
+#foot-terminfo
 fsarchiver
 gnu-netcat
 gpart
@@ -42,8 +46,12 @@ grub
 hdparm
 hyperv
 intel-ucode
+irssi
+iw
+iwd
 jfsutils
 #kitty-terminfo
+ldns
 less
 #lftp
 libfido2
@@ -58,6 +66,7 @@ lvm2
 #lynx
 man-db
 man-pages
+#mc
 mdadm
 memtest86+
 memtest86+-efi
@@ -77,6 +86,7 @@ nvme-cli
 open-iscsi
 open-vm-tools
 openconnect
+#openpgp-card-tools
 openssh
 openvpn
 partclone
@@ -95,25 +105,28 @@ rsync
 #rxvt-unicode-terminfo
 screen
 sdparm
+#sequoia-sq
 sg3_utils
 smartmontools
 sof-firmware
 squashfs-tools
 sudo
 syslinux
-#systemd-resolvconf
+systemd-resolvconf
 tcpdump
 terminus-font
 testdisk
 tmux
+#tpm2-tools
 tpm2-tss
 udftools
 usb_modeswitch
 usbmuxd
 usbutils
 vim
-#virtualbox-guest-utils-nox
+virtualbox-guest-utils-nox
 vpnc
+#wezterm-terminfo
 wireless-regdb
 wireless_tools
 wpa_supplicant
@@ -164,7 +177,7 @@ nvidia-settings
 base-devel
 
 ###virtual box or vmware
-virtualbox-guest-utils
+#virtualbox-guest-utils
 
 ###packages for dual boot
 os-prober
@@ -247,7 +260,7 @@ poppler-qt5
 #deadbeef
 dmenu
 #evolution
-feh
+#feh
 firefox
 #flashplugin
 #galculator
@@ -259,19 +272,19 @@ firefox
 imagemagick
 #inkscape
 #libreoffice-fresh
-lollypop
+#lollypop
 lshw
 #meld
 #micro
 #nitrogen
 numlockx
 #pragha
-qbittorrent
+#qbittorrent
 scrot
-simplescreenrecorder
+#simplescreenrecorder
 #termite
 variety
-vlc
+#vlc
 
 ###conky
 jq
@@ -311,7 +324,7 @@ kvantum-qt5-git
 #arandr
 #asciinema
 bash-completion
-baobab
+#baobab
 bat
 catfish
 cronie
@@ -355,8 +368,8 @@ nomacs-qt6-git
 oh-my-zsh-git
 p7zip
 #pkgfile
-plank
-playerctl
+#plank
+#playerctl
 polkit
 polkit-gnome
 #python2-dbus
@@ -367,7 +380,7 @@ qt5ct
 #qt5-tools
 #qt5-webkit
 #powertop
-ripgrep
+#ripgrep
 #rofi
 #rxvt-unicode
 simple-scan
@@ -446,8 +459,8 @@ conky-lua-archers
 downgrade
 font-manager
 #glxinfo
-gitahead-bin
-#grub-customizer
+#gitahead-bin
+grub-customizer
 hardcode-fixer-git
 inxi
 mintstick-git
@@ -473,7 +486,7 @@ the_silver_searcher
 #urxvt-perls
 #urxvt-resize-font-git
 wttr
-yad
+#yad
 #yakuake
 yay-git
 
@@ -493,21 +506,21 @@ arcolinux-alacritty-git
 arcolinux-arc-kde
 arcolinux-bin-git
 arcolinux-bootloader-grub-git
-arcolinux-btop-git
+#arcolinux-btop-git
 a-candy-beauty-icon-theme-git
 #arcolinux-common-git
 arcolinux-conky-collection-git
 #arcolinux-conky-collection-plasma-git
 #arcolinux-cron-git
 #arcolinux-docs-git
-arcolinux-desktop-trasher-git
+#arcolinux-desktop-trasher-git
 arcolinux-faces-git
 arcolinux-fonts-git
 #arcolinux-geany-git
 arcolinux-grub-theme-vimix-git
 #arcolinux-gtk3-arcolinux-candy-beauty-git
-arcolinux-gtk3-sardi-arc-git
-#arcolinux-gtk3-surfn-arc-git
+#arcolinux-gtk3-sardi-arc-git
+arcolinux-gtk3-surfn-arc-git
 #arcolinux-gtk3-surfn-arc-breeze-git
 #arcolinux-gtk3-surfn-plasma-dark-git
 #arcolinux-guake-autostart-git
@@ -522,7 +535,7 @@ arcolinux-local-applications-all-hide-git
 #arcolinux-local-applications-plasma-hide-git
 arcolinux-local-xfce4-git
 arcolinux-logo-git
-archlinux-logout-git
+#archlinux-logout-git
 #arcolinux-lxqt-applications-add-git
 #arcolinux-lxqt-applications-hide-git
 #arcolinux-meta-logout
@@ -537,8 +550,8 @@ arcolinux-neofetch-git
 #arcolinux-openbox-themes-git
 arcolinux-paru-git
 arcolinux-pipemenus-git
-arcolinux-plank-git
-arcolinux-plank-themes-git
+#arcolinux-plank-git
+#arcolinux-plank-themes-git
 #arcolinux-plasma-kservices-git
 #arcolinux-polybar-git
 arcolinux-qt5-git
@@ -558,7 +571,7 @@ arcolinux-systemd-services-git
 #arcolinux-tint2-git
 #arcolinux-tint2-themes-git
 archlinux-tweak-tool-git
-arcolinux-variety-git
+#arcolinux-variety-git
 arcolinux-variety-autostart-git
 #arcolinux-volumeicon-git
 arcolinux-wallpapers-git
@@ -624,7 +637,7 @@ arcolinux-zsh-git
 #                           ARCOLINUX CONFIG FOLDER
 ###########################################################################
 
-arcolinux-config-all-desktops-git
+#arcolinux-config-all-desktops-git
 #arcolinux-config-awesome-git
 #arcolinux-config-berry-git
 #arcolinux-config-bspwm-git
@@ -700,18 +713,18 @@ arcolinux-config-all-desktops-git
 #                                ARCOLINUX CALAMARES
 ###########################################################################
 
-arco-calamares
+#arco-calamares
 #arco-calamares-comp
 #arco-calamares-dev
 #arco-calamares-git
 #arco-calamares-next
 #arco-calamares-wayland
 #arcolinux-system-installation-git
-arcolinux-system-installation-dev-git
+#arcolinux-system-installation-dev-git
 #arcolinuxd-config-live-session-git
 #arcolinux-welcome-app-git
 #arcolinuxd-welcome-app-git
-arcolinux-welcome-app-dev-git
+#arcolinux-welcome-app-dev-git
 #arcolinux-welcome-app-deepin-git
 
 ###########################################################################
@@ -735,9 +748,9 @@ arcolinux-welcome-app-dev-git
 #hwinfo
 #qt5-xmlpatterns
 
-adobe-source-han-sans-jp-fonts
-adobe-source-han-sans-kr-fonts
-adobe-source-han-sans-cn-fonts
+#adobe-source-han-sans-jp-fonts
+#adobe-source-han-sans-kr-fonts
+#adobe-source-han-sans-cn-fonts
 
 ###########################################################################
 #                                ARCOLINUX CONFIG CALAMARES
@@ -809,9 +822,9 @@ adobe-source-han-sans-cn-fonts
 #                                DISPLAY MANAGERS
 ###########################################################################
 
-accountsservice
-sddm
-arcolinux-sddm-simplicity-git
+#accountsservice
+#sddm
+#arcolinux-sddm-simplicity-git
 
 ###########################################################################
 #                         PICOM OR COMPTON
@@ -823,8 +836,8 @@ arcolinux-sddm-simplicity-git
 #                         GENERAL DESKTOP RELATED
 ###########################################################################
 
-mugshot
-menulibre
+#mugshot
+#menulibre
 #volumeicon
 
 ###########################################################################
@@ -933,34 +946,122 @@ menulibre
 #                                ISO SPECIFIC
 ###########################################################################
 ##arcolinux-apps
-sofirem-git
+#sofirem-git
 
-arcolinux-meta-log
+#arcolinux-meta-log
 #tempus-themes-xfce4-terminal-git
 #prot16-xfce4-terminal
-alacritty-themes
+#alacritty-themes
 #base16-alacritty-git
 #xfce4-terminal-base16-colors-git
-time
-pace
-sparklines-git
-fish
-arcolinux-fish-git
-ripgrep-all
+#time
+#pace
+#sparklines-git
+#fish
+#arcolinux-fish-git
+#ripgrep-all
 #archlinux-login-backgrounds-plain-git
-vimix-cursors
-arcolinux-app-glade-git
-noto-fonts-emoji
-hyfetch
-arcolinux-hyfetch-git
-arcolinux-xfce-prime-git
-arcolinux-arc-dawn-git
-btop
-xfce4
-xfce4-goodies
-mkinitcpio-firmware
+#vimix-cursors
+#arcolinux-app-glade-git
+#noto-fonts-emoji
+#hyfetch
+#arcolinux-hyfetch-git
+#arcolinux-xfce-prime-git
+#arcolinux-arc-dawn-git
+#btop
+#xfce4
+#xfce4-goodies
+#mkinitcpio-firmware
 
 ## chaotics-aur
 #flat-remix
 #colloid-cursors-git
+
+###########################################################################
+####                         ARCONET ISO SPECIFIC
+###########################################################################
+
+linux-lts
+linux-lts-headers
+
+###########################################################################
+####                               CALAMARES
+###########################################################################
+
+arco-calamares
 arconet-calamares-config
+#arcolinux-system-installation-git
+arcolinux-system-installation-dev-git
+#arcolinux-welcome-app-git
+#arcolinuxd-welcome-app-git
+arcolinux-welcome-app-dev-git
+#arcolinux-welcome-app-deepin-git
+
+adobe-source-han-sans-jp-fonts
+adobe-source-han-sans-kr-fonts
+adobe-source-han-sans-cn-fonts
+
+
+###########################################################################
+####                           DISPLAY MANAGERS
+###########################################################################
+
+accountsservice
+sddm
+arcolinux-sddm-simplicity-git
+
+###########################################################################
+####                           DESKTOP MANAGERS
+###########################################################################
+
+xfce4
+xfce4-goodies
+
+###########################################################################
+####                            ARCONET CONFIGS
+###########################################################################
+
+arcolinux-arc-dawn-git
+arconet-variety-config
+arconet-wallpapers
+arconet-xfce
+
+###########################################################################
+####                            ARCOLINUX APPS
+###########################################################################
+
+##arcolinux-apps
+archlinux-logout-git
+arcolinux-app-glade-git
+arcolinux-desktop-trasher-git
+sofirem-git
+
+
+alacritty-themes
+arcolinux-btop-git
+arcolinux-config-all-desktops-git
+arcolinux-fish-git
+arcolinux-hyfetch-git
+arcolinux-meta-log
+btop
+feh
+fish
+hyfetch
+mkinitcpio-firmware
+menulibre
+mugshot
+noto-fonts-emoji
+pace
+ripgrep
+ripgrep-all
+sparklines-git
+time
+vimix-cursors
+yad
+
+###########################################################################
+####                               CHAOTICS AUR
+###########################################################################
+
+#flat-remix
+colloid-cursors-git

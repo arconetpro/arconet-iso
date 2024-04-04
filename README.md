@@ -2,7 +2,7 @@
  <img src="https://github.com/erikdubois/arcolinux-nemesis/blob/master/Personal/settings/arcolinuxws.png">
 </p>
 
-# ArcoLinuXL iso
+# arconet iso
 
 # Follow build and installation tutorials on
 

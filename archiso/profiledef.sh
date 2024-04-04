@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC2034
 
-iso_name="arcolinuxl-git"
-iso_label="arcolinuxl-git-v24.05.01"
+iso_name="arconet"
+iso_label="arconet-v24.05.01"
 iso_publisher="ArcoLinux <http://www.arcolinux.info>"
 iso_application="ArcoLinux Live/Rescue CD"
 iso_version="v24.05.01"
@@ -15,6 +15,7 @@ arch="x86_64"
 pacman_conf="pacman.conf"
 airootfs_image_type="squashfs"
 airootfs_image_tool_options=('-comp' 'xz' '-Xbcj' 'x86' '-b' '1M' '-Xdict-size' '1M')
+bootstrap_tarball_compression=(gzip -cn9)
 file_permissions=(
   ["/etc/gshadow"]="0:0:600"
   ["/etc/shadow"]="0:0:600"
