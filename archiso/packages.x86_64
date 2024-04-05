@@ -20,8 +20,8 @@ clonezilla
 cryptsetup
 #darkhttpd
 ddrescue
-dhclient
-dhcpcd
+#dhclient
+#dhcpcd
 diffutils
 dmidecode
 dmraid
@@ -46,7 +46,7 @@ grub
 hdparm
 hyperv
 intel-ucode
-irssi
+#irssi
 iw
 iwd
 jfsutils
@@ -380,7 +380,7 @@ qt5ct
 #qt5-tools
 #qt5-webkit
 #powertop
-#ripgrep
+ripgrep
 #rofi
 #rxvt-unicode
 simple-scan
@@ -574,7 +574,7 @@ archlinux-tweak-tool-git
 #arcolinux-variety-git
 arcolinux-variety-autostart-git
 #arcolinux-volumeicon-git
-arcolinux-wallpapers-git
+#arcolinux-wallpapers-git
 #arcolinux-wallpapers-dual-git
 #arcolinux-wayfire-profile-git
 #arcolinux-wayland-profile-git
@@ -981,8 +981,8 @@ arcolinux-zsh-git
 ####                         ARCONET ISO SPECIFIC
 ###########################################################################
 
-linux-lts
-linux-lts-headers
+linux-zen
+linux-zen-headers
 
 ###########################################################################
 ####                               CALAMARES
