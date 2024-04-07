@@ -283,7 +283,7 @@ numlockx
 scrot
 #simplescreenrecorder
 #termite
-variety
+#variety
 #vlc
 
 ###conky
@@ -358,7 +358,7 @@ hw-probe
 #hyphen-en
 #grsync
 #intltool
-iw
+#iw
 #jsoncpp
 libmtp
 laptop-detect
@@ -367,7 +367,7 @@ mlocate
 nomacs-qt6-git
 oh-my-zsh-git
 p7zip
-#pkgfile
+pkgfile
 #plank
 #playerctl
 polkit
@@ -479,7 +479,7 @@ rate-mirrors-bin
 #scour
 #screenkey-git
 sublime-text-4
-the_platinum_searcher-bin
+#the_platinum_searcher-bin
 the_silver_searcher
 #trizen
 #urxvt-fullscreen
@@ -526,8 +526,8 @@ arcolinux-gtk3-surfn-arc-git
 #arcolinux-guake-autostart-git
 arcolinux-hblock-git
 #arcolinux-hyprland-profile-git
-arcolinux-keyring
-arcolinux-kvantum-git
+#arcolinux-keyring
+#arcolinux-kvantum-git
 #arcolinux-kvantum-lxqt-git
 #arcolinux-kvantum-plasma-git
 arcolinux-local-applications-git
@@ -562,7 +562,7 @@ arcolinux-root-git
 #arcolinux-slim
 #arcolinux-slimlock-themes-git
 #arcolinux-system-config-git
-arcolinux-system-config-dev-git
+#arcolinux-system-config-dev-git
 #arcolinuxd-system-config-git
 arcolinux-systemd-services-git
 #arcolinux-systemd-services-dev-git
@@ -570,7 +570,7 @@ arcolinux-systemd-services-git
 #arcolinux-termite-themes-git
 #arcolinux-tint2-git
 #arcolinux-tint2-themes-git
-archlinux-tweak-tool-git
+#archlinux-tweak-tool-git
 #arcolinux-variety-git
 arcolinux-variety-autostart-git
 #arcolinux-volumeicon-git
@@ -964,8 +964,6 @@ arcolinux-zsh-git
 #vimix-cursors
 #arcolinux-app-glade-git
 #noto-fonts-emoji
-#hyfetch
-#arcolinux-hyfetch-git
 #arcolinux-xfce-prime-git
 #arcolinux-arc-dawn-git
 #btop
@@ -978,7 +976,7 @@ arcolinux-zsh-git
 #colloid-cursors-git
 
 ###########################################################################
-####                         ARCONET ISO SPECIFIC
+####                 ARCONET ISO SPECIFIC
 ###########################################################################
 
 linux-zen
@@ -1003,6 +1001,12 @@ adobe-source-han-sans-cn-fonts
 
 
 ###########################################################################
+####                         KEYRINGS
+###########################################################################
+
+arcolinux-keyring
+
+###########################################################################
 ####                           DISPLAY MANAGERS
 ###########################################################################
 
@@ -1021,34 +1025,47 @@ xfce4-goodies
 ####                            ARCONET CONFIGS
 ###########################################################################
 
-arcolinux-arc-dawn-git
 arconet-variety-config
 arconet-wallpapers
+#arcopro-wallpapers
 arconet-xfce
 
 ###########################################################################
-####                            ARCOLINUX APPS
+####                 ARCOLINUX APPS
 ###########################################################################
 
-##arcolinux-apps
 archlinux-logout-git
+archlinux-tweak-tool-git
 arcolinux-app-glade-git
 arcolinux-desktop-trasher-git
 sofirem-git
 
+###########################################################################
+####                 ARCOLINUX CONFIGS
+###########################################################################
 
 alacritty-themes
+arcolinux-arc-dawn-git
 arcolinux-btop-git
 arcolinux-config-all-desktops-git
+arcolinux-dconf-all-desktops-git
 arcolinux-fish-git
-arcolinux-hyfetch-git
 arcolinux-meta-log
+#arcolinux-system-config-git
+arcolinux-system-config-dev-git
+#arcolinuxd-system-config-git
+#arcolinuxd-system-config-git
+arcolinux-wallpapers-git
+
+###########################################################################
+####                       APPS
+###########################################################################
+
 btop
 feh
 fish
-hyfetch
-mkinitcpio-firmware
 menulibre
+mkinitcpio-firmware
 mugshot
 noto-fonts-emoji
 pace
@@ -1056,6 +1073,7 @@ ripgrep
 ripgrep-all
 sparklines-git
 time
+variety
 vimix-cursors
 yad
 
