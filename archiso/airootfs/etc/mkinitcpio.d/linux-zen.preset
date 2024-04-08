@@ -3,5 +3,5 @@ ALL_kver='/boot/vmlinuz-linux-zen'
 #PRESETS=('default' 'fallback')
 PRESETS=('default')
 default_image="/boot/initramfs-linux-zen.img"
-fallback_image="/boot/initramfs-linux-zen-fallback.img"
-fallback_options="-S autodetect"
+#fallback_image="/boot/initramfs-linux-zen-fallback.img"
+#fallback_options="-S autodetect"
