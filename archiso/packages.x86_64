@@ -460,7 +460,7 @@ downgrade
 font-manager
 #glxinfo
 #gitahead-bin
-grub-customizer
+#grub-customizer OUT!!
 hardcode-fixer-git
 inxi
 mintstick-git
@@ -1066,6 +1066,7 @@ feh
 fish
 menulibre
 mkinitcpio-firmware
+most
 mugshot
 noto-fonts-emoji
 pace
