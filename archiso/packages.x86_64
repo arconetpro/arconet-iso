@@ -1054,7 +1054,7 @@ arcolinux-meta-log
 #arcolinux-system-config-git
 arcolinux-system-config-dev-git
 #arcolinuxd-system-config-git
-#arcolinuxd-system-config-git
+#arcolinuxd-system-config-dev-git - OUT!
 arcolinux-wallpapers-git
 
 ###########################################################################
