@@ -572,7 +572,7 @@ arcolinux-systemd-services-git
 #arcolinux-tint2-themes-git
 #archlinux-tweak-tool-git
 #arcolinux-variety-git
-arcolinux-variety-autostart-git
+#arcolinux-variety-autostart-git
 #arcolinux-volumeicon-git
 #arcolinux-wallpapers-git
 #arcolinux-wallpapers-dual-git
