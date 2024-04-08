@@ -280,7 +280,7 @@ lshw
 numlockx
 #pragha
 #qbittorrent
-scrot
+#scrot
 #simplescreenrecorder
 #termite
 #variety
@@ -428,8 +428,8 @@ bibata-cursor-theme-bin
 #xcursor-vanilla-dmz-aa
 
 ###fonts
-ttf-font-awesome
-ttf-ms-fonts
+#ttf-font-awesome
+#ttf-ms-fonts
 
 ###icons
 #faba-icon-theme-git
@@ -1073,6 +1073,9 @@ ripgrep
 ripgrep-all
 sparklines-git
 time
+ttf-ms-fonts
+ttf-font-awesome
+ttf-jetbrains-mono-nerd
 variety
 vimix-cursors
 yad
