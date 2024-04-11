@@ -217,7 +217,7 @@ networkmanager-openvpn
 networkmanager-pptp
 networkmanager-vpnc
 networkmanager-qt5
-openresolv
+#openresolv
 rtl8821cu-morrownr-dkms-git
 
 ###file management
