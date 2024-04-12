@@ -587,11 +587,11 @@ linux-zen-headers
 
 arco-calamares
 arconet-calamares-config
-#arcolinux-system-installation-git
-arcolinux-system-installation-dev-git
-#arcolinux-welcome-app-git
+arcolinux-system-installation-git
+#arcolinux-system-installation-dev-git
+arcolinux-welcome-app-git
 #arcolinuxd-welcome-app-git
-arcolinux-welcome-app-dev-git
+#arcolinux-welcome-app-dev-git
 #arcolinux-welcome-app-deepin-git
 
 adobe-source-han-sans-jp-fonts
