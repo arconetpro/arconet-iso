@@ -43,7 +43,7 @@ echo
 	# change the variable to true and add the package names
 	# that are hosted on chaotics-aur in the packages.x86_64 at the bottom
 
-	chaoticsrepo=true
+	chaoticsrepo=false
 	
 	# If you are ready to use your personal repo and personal packages
 	# https://arcolinux.com/use-our-knowledge-and-create-your-own-icon-theme-combo-use-github-to-saveguard-your-work/
@@ -51,7 +51,7 @@ echo
 	# 2. change the file personal-repo to reflect your repo
 	# 3. add your applications to the file packages-personal-repo.x86_64
 
-	personalrepo=true
+	personalrepo=false
 
 	echo "################################################################## "
 	echo "Building the desktop                   : "$desktop
@@ -212,6 +212,14 @@ echo
 		cat chaotics-repo | sudo tee -a $buildFolder/archiso/airootfs/etc/pacman.conf
 	fi
 
+	if [ $chaoticsrepo == false ]; then
+		echo "Adding our chaotics repo to /etc/pacman.conf"
+		printf "\n" | sudo tee -a $buildFolder/archiso/pacman.conf
+		printf "\n" | sudo tee -a $buildFolder/archiso/airootfs/etc/pacman.conf
+		cat no-chaotics-repo | sudo tee -a $buildFolder/archiso/pacman.conf
+		cat no-chaotics-repo | sudo tee -a $buildFolder/archiso/airootfs/etc/pacman.conf
+	fi
+
 	echo
 	echo "Adding the content of the /personal folder"
 	echo
@@ -260,7 +268,7 @@ echo
 	sed -i 's/'$oldname2'/'$newname2'/g' $buildFolder/archiso/profiledef.sh
 	sed -i 's/'$oldname3'/'$newname3'/g' $buildFolder/archiso/airootfs/etc/dev-rel
 	sed -i 's/'$oldname4'/'$newname4'/g' $buildFolder/archiso/airootfs/etc/hostname
-	sed -i 's/'$oldname5'/'$newname5'/g' $buildFolder/archiso/airootfs/etc/sddm.conf
+	sed -i 's/'$oldname5'/'$newname5'/g' $buildFolder/archiso/airootfs/etc/sddm.conf.d/kde_settings.conf
 
 	echo "Adding time to /etc/dev-rel"
 	date_build=$(date -d now)
