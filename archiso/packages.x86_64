@@ -217,7 +217,6 @@ networkmanager-openvpn
 networkmanager-pptp
 networkmanager-vpnc
 networkmanager-qt5
-#openresolv
 rtl8821cu-morrownr-dkms-git
 
 ###file management
@@ -381,7 +380,6 @@ qt5ct
 #qt5-webkit
 #powertop
 ripgrep
-#rofi
 #rxvt-unicode
 simple-scan
 #shotwell
