@@ -258,39 +258,30 @@ poppler-qt5
 #darktable
 #deadbeef
 dmenu
-#evolution
 #feh
 firefox
-#flashplugin
 #galculator
 #geany
 #gimp
-#gmrun
 #gsimplecal
 #guvcview
 imagemagick
 #inkscape
-#libreoffice-fresh
 #lollypop
 lshw
 #meld
 #micro
 #nitrogen
 numlockx
-#pragha
 #qbittorrent
 #scrot
 #simplescreenrecorder
-#termite
 #variety
 #vlc
 
 ###conky
 jq
 lm_sensors
-
-###cursors
-#xcursor-simpleandsoft
 
 ###fonts
 adobe-source-sans-fonts
@@ -307,8 +298,6 @@ ttf-roboto-mono
 ttf-ubuntu-font-family
 
 ###icons
-#arc-icon-theme
-#gnome-icon-theme
 #papirus-icon-theme
 
 ###themes
@@ -338,7 +327,6 @@ file-roller
 #filezilla
 git
 gksu
-#glances
 gnome-disk-utility
 gnome-keyring
 #gnome-screenshot
@@ -357,7 +345,6 @@ hw-probe
 #hyphen-en
 #grsync
 #intltool
-#iw
 #jsoncpp
 libmtp
 laptop-detect
@@ -380,12 +367,10 @@ qt5ct
 #qt5-webkit
 #powertop
 ripgrep
-#rxvt-unicode
 simple-scan
 #shotwell
 #speedtest-cli-git
 telegram-desktop
-#timeshift
 tlp
 #tree
 #ufw
@@ -394,8 +379,6 @@ unace
 unrar
 unzip
 #vnstat
-#w3m
-#webkit2gtk
 xapp
 xdg-desktop-portal-gtk
 yt-dlp
@@ -434,9 +417,6 @@ surfn-icons-git
 #surfn-arc-breeze-icons-git
 #zafiro-icon-theme
 
-###network
-#b43-firmware
-
 ###tools
 mkinitcpio-openswap
 
@@ -444,11 +424,9 @@ mkinitcpio-openswap
 alacritty
 appstream
 appstream-qt5
-#archiso
 conky-lua-archers
 downgrade
 font-manager
-#glxinfo
 #gitahead-bin
 #grub-customizer OUT!!
 hardcode-fixer-git
@@ -459,8 +437,6 @@ neofetch
 #octopi
 #octopi-notifier-qt5
 paru-git
-#peek
-#pulseaudio-equalizer-ladspa
 python-pyparted
 python-pywal
 rate-mirrors-bin
@@ -470,12 +446,8 @@ sublime-text-4
 #the_platinum_searcher-bin
 the_silver_searcher
 #trizen
-#urxvt-fullscreen
-#urxvt-perls
-#urxvt-resize-font-git
 wttr
 #yad
-#yakuake
 yay-git
 
 ###########################################################################
