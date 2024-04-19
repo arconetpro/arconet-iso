@@ -312,8 +312,8 @@ alias fix-keys="/usr/local/bin/arcolinux-fix-pacman-databases-and-keys"
 #alias fix-sddm-config="/usr/local/bin/arcolinux-fix-sddm-config"
 alias fix-pacman-conf="/usr/local/bin/arcolinux-fix-pacman-conf"
 alias fix-pacman-keyserver="/usr/local/bin/arcolinux-fix-pacman-gpg-conf"
-alias fix-grub="/usr/local/bin/arcolinux-fix-grub"
-alias fixgrub="/usr/local/bin/arcolinux-fix-grub"
+alias fix-grub="sudo /usr/local/bin/arcolinux-fix-grub"
+alias fixgrub="sudo /usr/local/bin/arcolinux-fix-grub"
 
 #maintenance
 alias big="expac -H M '%m\t%n' | sort -h | nl"
