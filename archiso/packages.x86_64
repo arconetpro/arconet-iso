@@ -479,9 +479,7 @@ arcolinux-gtk3-surfn-arc-git
 arcolinux-hblock-git
 #arcolinux-hyprland-profile-git
 #arcolinux-keyring
-#arcolinux-kvantum-git
-#arcolinux-kvantum-lxqt-git
-#arcolinux-kvantum-plasma-git
+arcolinux-kvantum-git
 arcolinux-local-applications-git
 arcolinux-local-applications-all-hide-git
 #arcolinux-local-applications-plasma-hide-git
