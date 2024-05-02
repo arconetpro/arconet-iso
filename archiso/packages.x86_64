@@ -432,7 +432,7 @@ font-manager
 hardcode-fixer-git
 inxi
 mintstick-git
-neofetch
+#neofetch
 #numix-gtk-theme-git
 #octopi
 #octopi-notifier-qt5
@@ -490,7 +490,7 @@ arcolinux-logo-git
 #arcolinux-lxqt-applications-hide-git
 #arcolinux-meta-logout
 arcolinux-mirrorlist-git
-arcolinux-neofetch-git
+#arcolinux-neofetch-git
 #arcolinux-nitrogen-git
 #arcolinux-oblogout
 #arcolinux-oblogout-themes-git
