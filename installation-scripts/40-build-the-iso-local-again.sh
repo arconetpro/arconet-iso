@@ -34,7 +34,7 @@ echo
 	isoLabel='arconet-'$arcolinuxVersion'-x86_64.iso'
 
 	# setting of the general parameters
-	archisoRequiredVersion="archiso 77-1"
+	archisoRequiredVersion="archiso 78-1"
 	buildFolder=$HOME"/arconet-build"
 	outFolder=$HOME"/arconet-Out"
 	archisoVersion=$(sudo pacman -Q archiso)
