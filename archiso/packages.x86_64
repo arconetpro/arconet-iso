@@ -355,7 +355,7 @@ oh-my-zsh-git
 p7zip
 pkgfile
 #plank
-#playerctl
+playerctl
 polkit
 polkit-gnome
 #python2-dbus
