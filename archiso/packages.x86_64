@@ -124,7 +124,7 @@ usb_modeswitch
 usbmuxd
 usbutils
 vim
-virtualbox-guest-utils-nox
+#virtualbox-guest-utils-nox
 vpnc
 #wezterm-terminfo
 wireless-regdb
@@ -177,7 +177,7 @@ nvidia-settings
 base-devel
 
 ###virtual box or vmware
-#virtualbox-guest-utils
+virtualbox-guest-utils
 
 ###packages for dual boot
 os-prober
