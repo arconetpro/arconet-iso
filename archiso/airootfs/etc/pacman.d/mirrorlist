@@ -9,7 +9,7 @@ Server = https://mirrors.kernel.org/archlinux/$repo/os/$arch
 
 ##
 ## Arch Linux repository mirrorlist
-## Generated on 2024-08-14
+## Generated on 2024-09-05
 ##
 
 ## Worldwide
@@ -285,6 +285,8 @@ Server = http://mirror.spaceint.fr/archlinux/$repo/os/$arch
 Server = https://mirror.spaceint.fr/archlinux/$repo/os/$arch
 Server = http://mirrors.standaloneinstaller.com/archlinux/$repo/os/$arch
 Server = https://mirror.sysa.tech/archlinux/$repo/os/$arch
+Server = http://mirror.syxpi.fr/arch/$repo/os/$arch
+Server = https://mirror.syxpi.fr/arch/$repo/os/$arch
 Server = https://mirror.thekinrar.fr/archlinux/$repo/os/$arch
 Server = http://mirror.theo546.fr/archlinux/$repo/os/$arch
 Server = https://mirror.theo546.fr/archlinux/$repo/os/$arch
@@ -687,8 +689,6 @@ Server = https://mirrors.hosterion.ro/archlinux/$repo/os/$arch
 Server = http://mirrors.hostico.ro/archlinux/$repo/os/$arch
 Server = https://mirrors.hostico.ro/archlinux/$repo/os/$arch
 Server = http://archlinux.mirrors.linux.ro/$repo/os/$arch
-Server = http://linuxromania.ro/archlinux/$repo/os/$arch
-Server = https://linuxromania.ro/archlinux/$repo/os/$arch
 Server = http://mirrors.m247.ro/archlinux/$repo/os/$arch
 Server = http://mirrors.nav.ro/archlinux/$repo/os/$arch
 Server = http://mirrors.nxthost.com/archlinux/$repo/os/$arch
@@ -876,6 +876,8 @@ Server = http://mirror.mirohost.net/archlinux/$repo/os/$arch
 Server = https://mirror.mirohost.net/archlinux/$repo/os/$arch
 Server = http://mirrors.nix.org.ua/linux/archlinux/$repo/os/$arch
 Server = https://mirrors.nix.org.ua/linux/archlinux/$repo/os/$arch
+Server = http://mirrors.reitarovskyi.tech/archlinux/$repo/os/$arch
+Server = https://mirrors.reitarovskyi.tech/archlinux/$repo/os/$arch
 
 ## United Kingdom
 Server = http://archlinux.uk.mirror.allworldit.com/archlinux/$repo/os/$arch
@@ -1054,7 +1056,6 @@ Server = https://ftp.sudhip.com/archlinux/$repo/os/$arch
 Server = http://mirror.pit.teraswitch.com/archlinux/$repo/os/$arch
 Server = https://mirror.pit.teraswitch.com/archlinux/$repo/os/$arch
 Server = https://mirror.theash.xyz/arch/$repo/os/$arch
-Server = https://mirror.tmmworkshop.com/archlinux/$repo/os/$arch
 Server = http://mirror.umd.edu/archlinux/$repo/os/$arch
 Server = https://mirror.umd.edu/archlinux/$repo/os/$arch
 Server = http://mirrors.vectair.net/archlinux/$repo/os/$arch
@@ -1074,7 +1075,5 @@ Server = https://mirror.dc.uz/arch/$repo/os/$arch
 ## Vietnam
 Server = http://mirror.bizflycloud.vn/archlinux/$repo/os/$arch
 Server = https://mirrors.huongnguyen.dev/arch/$repo/os/$arch
-Server = http://mirror.kirbee.tech/archlinux/$repo/os/$arch
-Server = https://mirror.kirbee.tech/archlinux/$repo/os/$arch
 Server = https://mirrors.nguyenhoang.cloud/archlinux/$repo/os/$arch
 
