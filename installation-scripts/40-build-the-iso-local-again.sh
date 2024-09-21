@@ -1,5 +1,14 @@
 #!/bin/bash
 #set -e
+#tput setaf 0 = black 
+#tput setaf 1 = red 
+#tput setaf 2 = green
+#tput setaf 3 = yellow 
+#tput setaf 4 = dark blue 
+#tput setaf 5 = purple
+#tput setaf 6 = cyan 
+#tput setaf 7 = gray 
+#tput setaf 8 = light blue
 ##################################################################################################################
 # Author	:	Erik Dubois
 # Website	:	https://www.erikdubois.be
@@ -14,6 +23,17 @@
 #   DO NOT JUST RUN THIS. EXAMINE AND JUDGE. RUN AT YOUR OWN RISK.
 #
 ##################################################################################################################
+echo
+echo "################################################################## "
+tput setaf 3
+echo "Message"
+echo
+echo "Do not run this file as root or add sudo in front"
+echo "just ./40-build-the-iso-local-again.sh will be enough"
+tput sgr0
+echo "################################################################## "
+echo
+
 echo
 echo "################################################################## "
 tput setaf 2
