@@ -29,10 +29,11 @@ if 	lsblk -f | grep btrfs > /dev/null 2>&1 ; then
 	echo "################################################################## "
 	tput setaf 3
 	echo "Message"
-    echo "This script cannot run on a Btrfs filesystem. Exiting."
+    echo "This script has been known to cause issues on a Btrfs filesystem."
+    echo "Continu at your own risk."
     tput sgr0
     echo
-    exit 1
+    read -p "Press Enter to continue... CTRL + C to stop"
 fi
 
 echo
