@@ -30,8 +30,8 @@ if 	lsblk -f | grep btrfs > /dev/null 2>&1 ; then
 	tput setaf 3
 	echo "Message"
     echo "This script has been known to cause issues on a Btrfs filesystem"
-    echo "Continu at your own risk"
     echo "Make backups before continuing"
+    echo "Continu at your own risk"
     tput sgr0
     echo
     read -p "Press Enter to continue... CTRL + C to stop"
