@@ -348,7 +348,6 @@ libmtp
 laptop-detect
 lsb-release
 mlocate
-nomacs-qt6-git
 oh-my-zsh-git
 p7zip
 pkgfile
