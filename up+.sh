@@ -45,8 +45,6 @@ rm $workdir/archiso/airootfs/etc/pacman.d/mirrorlist
 touch $workdir/archiso/airootfs/etc/pacman.d/mirrorlist
 echo "## Best Arch Linux servers worldwide
 
-#Server = https://mirror.osbeck.com/archlinux/\$repo/os/\$arch
-#Server = http://mirror.osbeck.com/archlinux/\$repo/os/\$arch
 Server = https://geo.mirror.pkgbuild.com/\$repo/os/\$arch
 Server = http://mirror.rackspace.com/archlinux/\$repo/os/\$arch
 Server = https://mirror.rackspace.com/archlinux/\$repo/os/\$arch
