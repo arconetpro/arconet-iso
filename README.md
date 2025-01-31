@@ -32,11 +32,7 @@ Facebook : https://www.facebook.com/arcolinuxd/
 
 Facebook : https://www.facebook.com/groups/arcolinux/
 
-Flickr   : https://www.flickr.com/photos/arcolinux/
-
-Twitter  : https://twitter.com/arcolinux
-
-Instagram: https://www.instagram.com/arcolinux/
+Bluesky  : https://bsky.app/profile/arcolinux.bsky.social
 
 Linked in: https://www.linkedin.com/in/arcolinux
 
@@ -55,4 +51,6 @@ https://matrix.to/#/#official-arcolinux-news:matrix.org
 https://matrix.to/#/#official-arcolinux-general-support:matrix.org
 
 https://matrix.to/#/!jUDkosOsuDbGWNzKYl:matrix.org?via=matrix.org&via=envs.net&via=privacytools.io
+
+
 
