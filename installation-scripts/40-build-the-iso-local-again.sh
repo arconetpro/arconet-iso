@@ -136,7 +136,7 @@ echo
 echo "################################################################## "
 tput setaf 2
 echo "Phase 2 :"
-echo "- Checking if archiso is installed"
+echo "- Checking if archiso/grub is installed"
 echo "- Saving current archiso version to readme"
 echo "- Making mkarchiso verbose"
 tput sgr0
@@ -147,45 +147,68 @@ echo
 
 	#----------------------------------------------------------------------------------
 
-	#checking if application is already installed or else install with aur helpers
+	#checking if application is already installed or else install
 	if pacman -Qi $package &> /dev/null; then
 
-			echo "Archiso is already installed"
+			echo "$package is already installed"
 
 	else
 
-		#checking which helper is installed
-		if pacman -Qi yay &> /dev/null; then
+		echo "################################################################"
+		echo "######### Installing $package with pacman"
+		echo "################################################################"
 
-			echo "################################################################"
-			echo "######### Installing with yay"
-			echo "################################################################"
-			yay -S --noconfirm $package
+		sudo pacman --noconfirm $package
 
-		elif pacman -Qi trizen &> /dev/null; then
+	fi
 
-			echo "################################################################"
-			echo "######### Installing with trizen"
-			echo "################################################################"
-			trizen -S --noconfirm --needed --noedit $package
+	# Just checking if installation was successful
+	if pacman -Qi $package &> /dev/null; then
 
-		fi
+		echo "################################################################"
+		echo "#########  "$package" has been installed"
+		echo "################################################################"
 
-		# Just checking if installation was successful
-		if pacman -Qi $package &> /dev/null; then
+	else
 
-			echo "################################################################"
-			echo "#########  "$package" has been installed"
-			echo "################################################################"
+		echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+		echo "!!!!!!!!!  "$package" has NOT been installed"
+		echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+		exit 1
+	fi
 
-		else
+	package="grub"
 
-			echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-			echo "!!!!!!!!!  "$package" has NOT been installed"
-			echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-			exit 1
-		fi
+	#----------------------------------------------------------------------------------
 
+	#checking if application is already installed or else install
+	if pacman -Qi $package &> /dev/null; then
+
+			echo "$package is already installed"
+
+	else
+
+		echo "################################################################"
+		echo "######### Installing $package with pacman"
+		echo "################################################################"
+
+		sudo pacman --noconfirm $package
+
+	fi
+
+	# Just checking if installation was successful
+	if pacman -Qi $package &> /dev/null; then
+
+		echo "################################################################"
+		echo "#########  "$package" has been installed"
+		echo "################################################################"
+
+	else
+
+		echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+		echo "!!!!!!!!!  "$package" has NOT been installed"
+		echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+		exit 1
 	fi
 
 	echo
