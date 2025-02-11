@@ -37,7 +37,7 @@ if 	lsblk -f | grep btrfs > /dev/null 2>&1 ; then
     read -p "Press Enter to continue... CTRL + C to stop"
 fi
 
-if [  -f /etc/pacman.d/arcolinux-mirrorlist ] || [ ! -f /usr/share/pacman/keyrings/arcolinux.gpg ] ; then
+if [ ! -f /etc/pacman.d/arcolinux-mirrorlist ] || [ ! -f /usr/share/pacman/keyrings/arcolinux.gpg ] ; then
 	echo
 	echo "################################################################## "
 	tput setaf 3
