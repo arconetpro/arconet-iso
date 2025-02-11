@@ -37,6 +37,25 @@ if 	lsblk -f | grep btrfs > /dev/null 2>&1 ; then
     read -p "Press Enter to continue... CTRL + C to stop"
 fi
 
+if [  -f /etc/pacman.d/arcolinux-mirrorlist ] || [ ! -f /usr/share/pacman/keyrings/arcolinux.gpg ] ; then
+	echo
+	echo "################################################################## "
+	tput setaf 3
+	echo "Message"
+    echo "This script can only run if the ArcoLinux keys and"
+    echo "ArcoLinux mirrors are known to pacman"
+    echo
+    echo "Install them via ASA, ATT, AAG or script"
+    echo
+    echo "ASA - Arcolinux Spices Application - https://arcolinux.info"
+    echo "ATT - Arch Linux Tweaking Tool- AUR"
+    echo "AAG - ArcoLinux Application Glade - our repos"
+    echo "script - get-the-keys-and-repos.sh"
+    tput sgr0
+    echo
+    exit 1
+fi
+
 echo
 echo "################################################################## "
 tput setaf 3

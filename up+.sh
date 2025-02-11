@@ -41,6 +41,10 @@ workdir=$(pwd)
 echo "getting latest .bashrc"
 wget https://raw.githubusercontent.com/arcolinux/arcolinux-root/master/etc/skel/.bashrc-latest -O $workdir/archiso/airootfs/etc/skel/.bashrc
 
+echo "getting spices"
+wget https://raw.githubusercontent.com/arcolinux/arcolinux-spices/refs/heads/master/usr/share/arcolinux-spices/scripts/get-the-keys-and-repos.sh -O $workdir/installation-scripts/get-the-keys-and-repos.sh
+chmod +x $workdir/installation-scripts/get-the-keys-and-repos.sh
+
 rm $workdir/archiso/airootfs/etc/pacman.d/mirrorlist
 touch $workdir/archiso/airootfs/etc/pacman.d/mirrorlist
 echo "## Best Arch Linux servers worldwide
