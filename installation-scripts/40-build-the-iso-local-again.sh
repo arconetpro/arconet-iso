@@ -158,7 +158,7 @@ echo
 		echo "######### Installing $package with pacman"
 		echo "################################################################"
 
-		sudo pacman --noconfirm $package
+		sudo pacman -S --noconfirm $package
 
 	fi
 
@@ -192,7 +192,7 @@ echo
 		echo "######### Installing $package with pacman"
 		echo "################################################################"
 
-		sudo pacman --noconfirm $package
+		sudo pacman -S --noconfirm $package
 
 	fi
 
