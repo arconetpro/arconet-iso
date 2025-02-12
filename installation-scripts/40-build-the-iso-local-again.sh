@@ -37,7 +37,7 @@ tput sgr0
 echo "################################################################## "
 echo
 
-sleep 2
+sleep 3
 
 # message for BTRFS 
 if 	lsblk -f | grep btrfs > /dev/null 2>&1 ; then
@@ -45,6 +45,7 @@ if 	lsblk -f | grep btrfs > /dev/null 2>&1 ; then
 	echo "################################################################## "
 	tput setaf 3
 	echo "Message"
+	echo
     echo "This script has been known to cause issues on a Btrfs filesystem"
     echo "Make backups before continuing"
     echo "Continu at your own risk"
@@ -56,20 +57,23 @@ fi
 # any distro without our keys and mirrors
 if pacman -Q arcolinux-keyring &>/dev/null && pacman -Q arcolinux-mirrorlist-git &>/dev/null; then
 
+	
 	echo "################################################################## "
+	tput setaf 2
 	echo "ArcoLinux keyring and ArcoLinux mirrors are both installed"
+	tput sgr0
 	echo "################################################################## "
-
+	
 else
 	echo
-	tput setaf 3
 	echo "################################################################## "
+	tput setaf 3
 	echo "Installing ArcoLinux keyring and mirrors"
-    echo "We are missing the ArcoLinux keys and mirrors"
+    echo "as we are missing the packages for ArcoLinux keys and mirrors"
     echo "You can remove them later with pacman -R ..."
-    echo "################################################################## "
     tput sgr0
-
+    echo "################################################################## "
+    
     bash "$installed_dir/get-the-keys-and-mirrors.sh"
     
 fi
@@ -145,9 +149,7 @@ echo
 	# Just checking if installation was successful
 	if pacman -Qi $package &> /dev/null; then
 
-		echo "################################################################"
-		echo "#########  "$package" has been installed"
-		echo "################################################################"
+		echo 
 
 	else
 
@@ -179,9 +181,7 @@ echo
 	# Just checking if installation was successful
 	if pacman -Qi $package &> /dev/null; then
 
-		echo "################################################################"
-		echo "#########  "$package" has been installed"
-		echo "################################################################"
+		echo
 
 	else
 
@@ -193,12 +193,29 @@ echo
 
 	echo
 	echo "Saving current archiso version to readme"
-	sudo sed -i "s/\(^archiso-version=\).*/\1$archisoVersion/" ../archiso.readme
-	echo
-	echo "Making mkarchiso verbose"
-	sudo sed -i 's/quiet="y"/quiet="n"/g' /usr/bin/mkarchiso
+	sed -i "s/\(^archiso-version=\).*/\1$archisoVersion/" ../archiso.readme
+	#echo
+	#echo "Making mkarchiso verbose"
+	#sudo sed -i 's/quiet="y"/quiet="n"/g' /usr/bin/mkarchiso
 
-	archisoVersion=$(sudo pacman -Q archiso)
+	archisoVersion=$(pacman -Q archiso)
+
+	# overview
+
+	
+	echo "################################################################## "
+	tput setaf 2
+	echo "Overview"
+	tput sgr0
+	echo "################################################################## "
+	echo "Building the desktop                   : "$desktop
+	echo "Building version                       : "$arcolinuxVersion
+	echo "Iso label                              : "$isoLabel
+	echo "Do you have the right archiso version? : "$archisoVersion
+	echo "What is the required archiso version?  : "$archisoRequiredVersion
+	echo "Build folder                           : "$buildFolder
+	echo "Out folder                             : "$outFolder
+	echo "################################################################## "
 
 	if [ "$archisoVersion" == "$archisoRequiredVersion" ]; then
 		tput setaf 2
@@ -207,23 +224,12 @@ echo
 		echo "##################################################################"
 		tput sgr0
 	else
-	tput setaf 1
-	echo "###################################################################################################"
-	echo "It is recommended to always use the latest version of Archiso and update it as needed."
-	echo "###################################################################################################"
-	tput sgr0
+		tput setaf 1
+		echo "###################################################################################################"
+		echo "It is recommended to always use the latest version of Archiso and update it as needed."
+		echo "###################################################################################################"
+		tput sgr0
 	fi
-
-echo "################################################################## "
-echo "Building the desktop                   : "$desktop
-echo "Building version                       : "$arcolinuxVersion
-echo "Iso label                              : "$isoLabel
-echo "Do you have the right archiso version? : "$archisoVersion
-echo "What is the required archiso version?  : "$archisoRequiredVersion
-echo "Build folder                           : "$buildFolder
-echo "Out folder                             : "$outFolder
-echo "################################################################## "
-
 
 echo
 echo "################################################################## "
