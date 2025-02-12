@@ -23,12 +23,74 @@
 #   DO NOT JUST RUN THIS. EXAMINE AND JUDGE. RUN AT YOUR OWN RISK.
 #
 ##################################################################################################################
+# Funtions
 
+clean_cache() {
+    if [[ "$1" == "yes" ]]; then
+    	echo "##################################################################"
+    	tput setaf 2
+        echo "Cleaning the cache from /var/cache/pacman/pkg/"
+        tput sgr0
+        echo "##################################################################"
+        yes | sudo pacman -Scc
+    elif [[ "$1" == "no" ]]; then
+        echo "Skipping cache cleaning."
+    else
+        echo "Invalid option. Use: clean_cache yes | clean_cache no"
+    fi
+}
+
+remove_buildfolder() {
+
+    if [[ -z "$buildFolder" ]]; then
+        echo "Error: \$buildFolder is not set. Please define it before using this function."
+        return 1
+    fi
+
+    if [[ "$1" == "yes" ]]; then
+        if [[ -d "$buildFolder" ]]; then
+        	echo "##################################################################"
+    		tput setaf 3
+            echo "Deleting the build folder ($buildFolder) - this may take some time..."
+            sudo rm -rf "$buildFolder"
+            echo "Build folder removed."
+            tput sgr0
+            echo "##################################################################"
+        else
+        	echo "##################################################################"
+            echo "No build folder found. Nothing to delete."
+            echo "##################################################################"
+        fi
+    elif [[ "$1" == "no" ]]; then
+        echo "Skipping build folder removal."
+    else
+        echo "Invalid option. Use: remove_buildfolder yes | remove_buildfolder no"
+    fi
+}
+
+
+installed_dir=$(dirname $(readlink -f $(basename `pwd`)))
+
+echo
+echo "################################################################## "
+tput setaf 3
+echo "Message"
+echo
+echo "Do not run this file as root or add sudo in front"
+echo "just ./40-build-the-iso-local-again.sh as a user will be enough"
+tput sgr0
+echo "################################################################## "
+echo
+
+sleep 3
+
+# message for BTRFS 
 if 	lsblk -f | grep btrfs > /dev/null 2>&1 ; then
 	echo
 	echo "################################################################## "
 	tput setaf 3
 	echo "Message"
+	echo
     echo "This script has been known to cause issues on a Btrfs filesystem"
     echo "Make backups before continuing"
     echo "Continu at your own risk"
@@ -37,35 +99,29 @@ if 	lsblk -f | grep btrfs > /dev/null 2>&1 ; then
     read -p "Press Enter to continue... CTRL + C to stop"
 fi
 
-if [ ! -f /etc/pacman.d/arcolinux-mirrorlist ] || [ ! -f /usr/share/pacman/keyrings/arcolinux.gpg ] ; then
+# any distro without our keys and mirrors
+if pacman -Q arcolinux-keyring &>/dev/null && pacman -Q arcolinux-mirrorlist-git &>/dev/null; then
+
+	
+	echo "################################################################## "
+	tput setaf 2
+	echo "ArcoLinux keyring and ArcoLinux mirrors are both installed"
+	tput sgr0
+	echo "################################################################## "
+	
+else
 	echo
 	echo "################################################################## "
 	tput setaf 3
-	echo "Message"
-    echo "This script can only run if the ArcoLinux keys and"
-    echo "ArcoLinux mirrors are known to pacman"
-    echo
-    echo "Install them via ASA, ATT, AAG or script"
-    echo
-    echo "ASA - Arcolinux Spices Application - https://arcolinux.info"
-    echo "ATT - Arch Linux Tweaking Tool- AUR"
-    echo "AAG - ArcoLinux Application Glade - our repos"
-    echo "script - get-the-keys-and-repos.sh"
+	echo "Installing ArcoLinux keyring and mirrors"
+    echo "as we are missing the packages for ArcoLinux keys and mirrors"
+    echo "You can remove them later with pacman -R ..."
     tput sgr0
-    echo
-    exit 1
+    echo "################################################################## "
+    
+    bash "$installed_dir/get-the-keys-and-mirrors.sh"
+    
 fi
-
-echo
-echo "################################################################## "
-tput setaf 3
-echo "Message"
-echo
-echo "Do not run this file as root or add sudo in front"
-echo "just ./40-build-the-iso-local-again.sh will be enough"
-tput sgr0
-echo "################################################################## "
-echo
 
 echo
 echo "################################################################## "
@@ -90,7 +146,6 @@ echo
 	archisoRequiredVersion="archiso 82-1"
 	buildFolder=$HOME"/arconet-build"
 	outFolder=$HOME"/arconet-Out"
-	archisoVersion=$(sudo pacman -Q archiso)
 
 	# If you want to add packages from the chaotics-aur repo then
 	# change the variable to true and add the package names
@@ -106,39 +161,12 @@ echo
 
 	personalrepo=false
 
-	echo "################################################################## "
-	echo "Building the desktop                   : "$desktop
-	echo "Building version                       : "$arcolinuxVersion
-	echo "Iso label                              : "$isoLabel
-	echo "Do you have the right archiso version? : "$archisoVersion
-	echo "What is the required archiso version?  : "$archisoRequiredVersion
-	echo "Build folder                           : "$buildFolder
-	echo "Out folder                             : "$outFolder
-	echo "################################################################## "
-
-	if [ "$archisoVersion" == "$archisoRequiredVersion" ]; then
-		tput setaf 2
-		echo "##################################################################"
-		echo "Archiso has the correct version. Continuing ..."
-		echo "##################################################################"
-		tput sgr0
-	else
-	tput setaf 1
-	echo "###################################################################################################"
-	echo "You need to install the correct version of Archiso"
-	echo "Use 'sudo downgrade archiso' to do that"
-	echo "or update your system"
-	echo "###################################################################################################"
-	tput sgr0
-	fi
-
 echo
 echo "################################################################## "
 tput setaf 2
 echo "Phase 2 :"
 echo "- Checking if archiso/grub is installed"
 echo "- Saving current archiso version to readme"
-echo "- Making mkarchiso verbose"
 tput sgr0
 echo "################################################################## "
 echo
@@ -165,9 +193,7 @@ echo
 	# Just checking if installation was successful
 	if pacman -Qi $package &> /dev/null; then
 
-		echo "################################################################"
-		echo "#########  "$package" has been installed"
-		echo "################################################################"
+		echo 
 
 	else
 
@@ -199,9 +225,7 @@ echo
 	# Just checking if installation was successful
 	if pacman -Qi $package &> /dev/null; then
 
-		echo "################################################################"
-		echo "#########  "$package" has been installed"
-		echo "################################################################"
+		echo
 
 	else
 
@@ -211,12 +235,42 @@ echo
 		exit 1
 	fi
 
+	# Saving current archiso version to readme
+	sed -i "s/\(^archiso-version=\).*/\1$archisoVersion/" ../archiso.readme
+
+	archisoVersion=$(pacman -Q archiso)
+
+	# overview
+
+	
+	echo "################################################################## "
+	tput setaf 2
+	echo "Overview"
+	tput sgr0
+	echo "################################################################## "
+	echo "Building the desktop                   : "$desktop
+	echo "Building version                       : "$arcolinuxVersion
+	echo "Iso label                              : "$isoLabel
+	echo "Do you have the right archiso version? : "$archisoVersion
+	echo "What is the required archiso version?  : "$archisoRequiredVersion
+	echo "Build folder                           : "$buildFolder
+	echo "Out folder                             : "$outFolder
+	echo "################################################################## "
 	echo
-	echo "Saving current archiso version to readme"
-	sudo sed -i "s/\(^archiso-version=\).*/\1$archisoVersion/" ../archiso.readme
-	echo
-	echo "Making mkarchiso verbose"
-	sudo sed -i 's/quiet="y"/quiet="n"/g' /usr/bin/mkarchiso
+
+	if [ "$archisoVersion" == "$archisoRequiredVersion" ]; then
+		tput setaf 2
+		echo "##################################################################"
+		echo "Archiso has the correct version. Continuing ..."
+		echo "##################################################################"
+		tput sgr0
+	else
+		tput setaf 1
+		echo "###################################################################################################"
+		echo "It is recommended to always use the latest version of Archiso and update it as needed."
+		echo "###################################################################################################"
+		tput sgr0
+	fi
 
 echo
 echo "################################################################## "
@@ -245,6 +299,7 @@ echo "- Getting the last version of bashrc in /etc/skel"
 echo "- Removing the old packages.x86_64 file from build folder"
 echo "- Copying the new packages.x86_64 file to the build folder"
 echo "- Add our own personal repo + add your packages to packages-personal-repo.x86_64"
+echo "- Adding chaotics-repo"
 tput sgr0
 echo "################################################################## "
 echo
@@ -314,6 +369,7 @@ tput setaf 2
 echo "Phase 5 : "
 echo "- Changing all references"
 echo "- Adding time to /etc/dev-rel"
+echo "- Clean cache"
 tput sgr0
 echo "################################################################## "
 echo
@@ -351,18 +407,9 @@ echo
 	echo "Iso build on : "$date_build
 	sudo sed -i "s/\(^ISO_BUILD=\).*/\1$date_build/" $buildFolder/archiso/airootfs/etc/dev-rel
 
-
-echo
-echo "###########################################################"
-tput setaf 2
-echo "Phase 6 :"
-echo "- Cleaning the cache from /var/cache/pacman/pkg/"
-tput sgr0
-echo "###########################################################"
-echo
-
-	echo "Cleaning the cache from /var/cache/pacman/pkg/"
-	yes | sudo pacman -Scc
+	# cleaning cache yes or no
+	echo
+	clean_cache yes
 
 echo
 echo "################################################################## "
@@ -376,8 +423,6 @@ echo
 	[ -d $outFolder ] || mkdir $outFolder
 	cd $buildFolder/archiso/
 	sudo mkarchiso -v -w $buildFolder -o $outFolder $buildFolder/archiso/
-
-
 
 echo
 echo "###################################################################"
@@ -407,18 +452,18 @@ echo
 	echo "Moving pkglist.x86_64.txt"
 	echo "########################"
 	cp $buildFolder/iso/arch/pkglist.x86_64.txt  $outFolder/$isoLabel".pkglist.txt"
-	
+
 echo
 echo "##################################################################"
 tput setaf 2
 echo "Phase 9 :"
-echo "- Making sure we start with a clean slate next time"
+echo "- Removing the buildfolder or not"
 tput sgr0
 echo "################################################################## "
 echo
 
 	echo "Deleting the build folder if one exists - takes some time"
-	[ -d $buildFolder ] && sudo rm -rf $buildFolder
+	remove_buildfolder yes
 
 echo
 echo "##################################################################"

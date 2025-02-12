@@ -23,6 +23,51 @@
 #   DO NOT JUST RUN THIS. EXAMINE AND JUDGE. RUN AT YOUR OWN RISK.
 #
 ##################################################################################################################
+# Funtions
+
+clean_cache() {
+    if [[ "$1" == "yes" ]]; then
+    	echo "##################################################################"
+    	tput setaf 2
+        echo "Cleaning the cache from /var/cache/pacman/pkg/"
+        tput sgr0
+        echo "##################################################################"
+        yes | sudo pacman -Scc
+    elif [[ "$1" == "no" ]]; then
+        echo "Skipping cache cleaning."
+    else
+        echo "Invalid option. Use: clean_cache yes | clean_cache no"
+    fi
+}
+
+remove_buildfolder() {
+
+    if [[ -z "$buildFolder" ]]; then
+        echo "Error: \$buildFolder is not set. Please define it before using this function."
+        return 1
+    fi
+
+    if [[ "$1" == "yes" ]]; then
+        if [[ -d "$buildFolder" ]]; then
+        	echo "##################################################################"
+    		tput setaf 3
+            echo "Deleting the build folder ($buildFolder) - this may take some time..."
+            sudo rm -rf "$buildFolder"
+            echo "Build folder removed."
+            tput sgr0
+            echo "##################################################################"
+        else
+        	echo "##################################################################"
+            echo "No build folder found. Nothing to delete."
+            echo "##################################################################"
+        fi
+    elif [[ "$1" == "no" ]]; then
+        echo "Skipping build folder removal."
+    else
+        echo "Invalid option. Use: remove_buildfolder yes | remove_buildfolder no"
+    fi
+}
+
 
 installed_dir=$(dirname $(readlink -f $(basename `pwd`)))
 
@@ -122,7 +167,6 @@ tput setaf 2
 echo "Phase 2 :"
 echo "- Checking if archiso/grub is installed"
 echo "- Saving current archiso version to readme"
-echo "- Making mkarchiso verbose"
 tput sgr0
 echo "################################################################## "
 echo
@@ -191,12 +235,8 @@ echo
 		exit 1
 	fi
 
-	echo
-	echo "Saving current archiso version to readme"
+	# Saving current archiso version to readme
 	sed -i "s/\(^archiso-version=\).*/\1$archisoVersion/" ../archiso.readme
-	#echo
-	#echo "Making mkarchiso verbose"
-	#sudo sed -i 's/quiet="y"/quiet="n"/g' /usr/bin/mkarchiso
 
 	archisoVersion=$(pacman -Q archiso)
 
@@ -216,6 +256,7 @@ echo
 	echo "Build folder                           : "$buildFolder
 	echo "Out folder                             : "$outFolder
 	echo "################################################################## "
+	echo
 
 	if [ "$archisoVersion" == "$archisoRequiredVersion" ]; then
 		tput setaf 2
@@ -258,6 +299,7 @@ echo "- Getting the last version of bashrc in /etc/skel"
 echo "- Removing the old packages.x86_64 file from build folder"
 echo "- Copying the new packages.x86_64 file to the build folder"
 echo "- Add our own personal repo + add your packages to packages-personal-repo.x86_64"
+echo "- Adding chaotics-repo"
 tput sgr0
 echo "################################################################## "
 echo
@@ -327,6 +369,7 @@ tput setaf 2
 echo "Phase 5 : "
 echo "- Changing all references"
 echo "- Adding time to /etc/dev-rel"
+echo "- Clean cache"
 tput sgr0
 echo "################################################################## "
 echo
@@ -364,18 +407,9 @@ echo
 	echo "Iso build on : "$date_build
 	sudo sed -i "s/\(^ISO_BUILD=\).*/\1$date_build/" $buildFolder/archiso/airootfs/etc/dev-rel
 
-
-#echo
-#echo "################################################################## "
-#tput setaf 2
-#echo "Phase 6 :"
-#echo "- Cleaning the cache from /var/cache/pacman/pkg/"
-#tput sgr0
-#echo "################################################################## "
-#echo
-
-	#echo "Cleaning the cache from /var/cache/pacman/pkg/"
-	#yes | sudo pacman -Scc
+	# cleaning cache yes or no
+	echo
+	clean_cache no
 
 echo
 echo "################################################################## "
@@ -419,17 +453,17 @@ echo
 	echo "########################"
 	cp $buildFolder/iso/arch/pkglist.x86_64.txt  $outFolder/$isoLabel".pkglist.txt"
 
-#echo
-#echo "##################################################################"
-#tput setaf 2
-#echo "Phase 9 :"
-#echo "- Making sure we start with a clean slate next time"
-#tput sgr0
-#echo "################################################################## "
-#echo
+echo
+echo "##################################################################"
+tput setaf 2
+echo "Phase 9 :"
+echo "- Removing the buildfolder or not"
+tput sgr0
+echo "################################################################## "
+echo
 
-	#echo "Deleting the build folder if one exists - takes some time"
-	#[ -d $buildFolder ] && sudo rm -rf $buildFolder
+	echo "Deleting the build folder if one exists - takes some time"
+	remove_buildfolder no
 
 echo
 echo "##################################################################"
