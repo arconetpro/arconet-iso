@@ -24,6 +24,20 @@
 #
 ##################################################################################################################
 
+installed_dir=$(realpath ..)
+
+echo
+echo "################################################################## "
+tput setaf 3
+echo "Message"
+echo
+echo "Do not run this file as root or add sudo in front"
+echo "just ./40-build-the-iso-local-again.sh as a user will be enough"
+tput sgr0
+echo "################################################################## "
+echo
+echo sleep 1
+
 # message for BTRFS 
 if 	lsblk -f | grep btrfs > /dev/null 2>&1 ; then
 	echo
@@ -38,36 +52,26 @@ if 	lsblk -f | grep btrfs > /dev/null 2>&1 ; then
     read -p "Press Enter to continue... CTRL + C to stop"
 fi
 
-# message for Arch Linux - install the keys and mirrors if you want to change Arch into Arco
-if [ ! -f /etc/pacman.d/arcolinux-mirrorlist ] || [ ! -f /usr/share/pacman/keyrings/arcolinux.gpg ] ; then
-	echo
-	echo "################################################################## "
-	tput setaf 3
-	echo "Message"
-    echo "This script can only run if the ArcoLinux keys and"
-    echo "ArcoLinux mirrors are known to pacman"
-    echo
-    echo "Install them via ASA, ATT, AAG or script"
-    echo
-    echo "ASA - Arcolinux Spices Application - https://arcolinux.info"
-    echo "ATT - Arch Linux Tweaking Tool- AUR"
-    echo "AAG - ArcoLinux Application Glade - our repos"
-    echo "script - get-the-keys-and-repos.sh"
-    tput sgr0
-    sleep 3
-    echo
-fi
+# any distro without our keys and mirrors
+if pacman -Q arcolinux-keyring &>/dev/null && pacman -Q arcolinux-mirrorlist-git &>/dev/null; then
 
-echo
-echo "################################################################## "
-tput setaf 3
-echo "Message"
-echo
-echo "Do not run this file as root or add sudo in front"
-echo "just ./40-build-the-iso-local-again.sh as a user will be enough"
-tput sgr0
-echo "################################################################## "
-echo
+	echo "################################################################## "
+	echo "ArcoLinux keyring and ArcoLinux mirrors are both installed"
+	echo "################################################################## "
+
+else
+	echo
+	tput setaf 3
+	echo "################################################################## "
+	echo "Installing ArcoLinux keyring and mirrors"
+    echo "We are missing the ArcoLinux keys and mirrors"
+    echo "You can remove them later with pacman -R ..."
+    echo "################################################################## "
+    tput sgr0
+
+    bash $installed_dir/get-the-keys-and-mirrors.sh
+    
+fi
 
 echo
 echo "################################################################## "
@@ -106,17 +110,6 @@ echo
 	# 3. add your applications to the file packages-personal-repo.x86_64
 
 	personalrepo=false
-
-	echo "################################################################## "
-	echo "Building the desktop                   : "$desktop
-	echo "Building version                       : "$arcolinuxVersion
-	echo "Iso label                              : "$isoLabel
-	echo "We will install archiso when it is missing."
-	echo "Do you have the right archiso version? : "$archisoVersion
-	echo "What is the required archiso version?  : "$archisoRequiredVersion
-	echo "Build folder                           : "$buildFolder
-	echo "Out folder                             : "$outFolder
-	echo "################################################################## "
 
 echo
 echo "################################################################## "
@@ -219,6 +212,17 @@ echo
 	echo "###################################################################################################"
 	tput sgr0
 	fi
+
+echo "################################################################## "
+echo "Building the desktop                   : "$desktop
+echo "Building version                       : "$arcolinuxVersion
+echo "Iso label                              : "$isoLabel
+echo "Do you have the right archiso version? : "$archisoVersion
+echo "What is the required archiso version?  : "$archisoRequiredVersion
+echo "Build folder                           : "$buildFolder
+echo "Out folder                             : "$outFolder
+echo "################################################################## "
+
 
 echo
 echo "################################################################## "
