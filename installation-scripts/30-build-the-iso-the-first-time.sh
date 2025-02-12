@@ -53,7 +53,7 @@ remove_buildfolder() {
     		tput setaf 3
             echo "Deleting the build folder ($buildFolder) - this may take some time..."
             tput sgr0
-            sudo rm -rf "$buildFolder"         
+            sudo rm -rf "$buildFolder"
             echo "##################################################################"
         else
         	echo "##################################################################"
