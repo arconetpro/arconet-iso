@@ -90,7 +90,6 @@ echo
 	archisoRequiredVersion="archiso 82-1"
 	buildFolder=$HOME"/arconet-build"
 	outFolder=$HOME"/arconet-Out"
-	archisoVersion=$(sudo pacman -Q archiso)
 
 	# If you want to add packages from the chaotics-aur repo then
 	# change the variable to true and add the package names
@@ -201,6 +200,8 @@ echo
 	echo
 	echo "Making mkarchiso verbose"
 	sudo sed -i 's/quiet="y"/quiet="n"/g' /usr/bin/mkarchiso
+
+	archisoVersion=$(sudo pacman -Q archiso)
 
 	if [ "$archisoVersion" == "$archisoRequiredVersion" ]; then
 		tput setaf 2
