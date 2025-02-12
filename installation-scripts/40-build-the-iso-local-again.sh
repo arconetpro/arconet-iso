@@ -24,6 +24,7 @@
 #
 ##################################################################################################################
 
+# message for BTRFS 
 if 	lsblk -f | grep btrfs > /dev/null 2>&1 ; then
 	echo
 	echo "################################################################## "
@@ -37,6 +38,7 @@ if 	lsblk -f | grep btrfs > /dev/null 2>&1 ; then
     read -p "Press Enter to continue... CTRL + C to stop"
 fi
 
+# message for Arch Linux - install the keys and mirrors if you want to change Arch into Arco
 if [ ! -f /etc/pacman.d/arcolinux-mirrorlist ] || [ ! -f /usr/share/pacman/keyrings/arcolinux.gpg ] ; then
 	echo
 	echo "################################################################## "
@@ -52,8 +54,8 @@ if [ ! -f /etc/pacman.d/arcolinux-mirrorlist ] || [ ! -f /usr/share/pacman/keyri
     echo "AAG - ArcoLinux Application Glade - our repos"
     echo "script - get-the-keys-and-repos.sh"
     tput sgr0
+    sleep 3
     echo
-    exit 1
 fi
 
 echo
@@ -62,7 +64,7 @@ tput setaf 3
 echo "Message"
 echo
 echo "Do not run this file as root or add sudo in front"
-echo "just ./40-build-the-iso-local-again.sh will be enough"
+echo "just ./40-build-the-iso-local-again.sh as a user will be enough"
 tput sgr0
 echo "################################################################## "
 echo
@@ -109,6 +111,7 @@ echo
 	echo "Building the desktop                   : "$desktop
 	echo "Building version                       : "$arcolinuxVersion
 	echo "Iso label                              : "$isoLabel
+	echo "We will install archiso when it is missing."
 	echo "Do you have the right archiso version? : "$archisoVersion
 	echo "What is the required archiso version?  : "$archisoRequiredVersion
 	echo "Build folder                           : "$buildFolder
