@@ -69,7 +69,7 @@ else
     echo "################################################################## "
     tput sgr0
 
-    bash $installed_dir/get-the-keys-and-mirrors.sh
+    bash "$installed_dir/get-the-keys-and-mirrors.sh"
     
 fi
 
@@ -382,8 +382,6 @@ echo
 	[ -d $outFolder ] || mkdir $outFolder
 	cd $buildFolder/archiso/
 	sudo mkarchiso -v -w $buildFolder -o $outFolder $buildFolder/archiso/
-
-
 
 echo
 echo "###################################################################"
