@@ -52,9 +52,8 @@ remove_buildfolder() {
         	echo "##################################################################"
     		tput setaf 3
             echo "Deleting the build folder ($buildFolder) - this may take some time..."
-            sudo rm -rf "$buildFolder"
-            echo "Build folder removed."
             tput sgr0
+            sudo rm -rf "$buildFolder"         
             echo "##################################################################"
         else
         	echo "##################################################################"
@@ -67,7 +66,6 @@ remove_buildfolder() {
         echo "Invalid option. Use: remove_buildfolder yes | remove_buildfolder no"
     fi
 }
-
 
 installed_dir=$(dirname $(readlink -f $(basename `pwd`)))
 
@@ -282,15 +280,13 @@ tput sgr0
 echo "################################################################## "
 echo
 
-	echo "Deleting the build folder if one exists - takes some time"
-	[ -d $buildFolder ] && sudo rm -rf $buildFolder
+	remove_buildfolder yes
 	echo
 	echo "Copying the Archiso folder to build work"
 	echo
 	mkdir $buildFolder
 	cp -r ../archiso $buildFolder/archiso
 
-echo
 echo "################################################################## "
 tput setaf 2
 echo "Phase 4 :"
@@ -359,7 +355,7 @@ echo
 	if test -f $buildFolder/archiso/airootfs/personal/.gitkeep ; then
 		echo
 		rm $buildFolder/archiso/airootfs/personal/.gitkeep
-		echo ".gitkeep is now removed"
+		# .gitkeep is now removed"
 		echo
     fi
 
