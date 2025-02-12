@@ -24,7 +24,7 @@
 #
 ##################################################################################################################
 
-installed_dir=$(realpath ..)
+installed_dir=$(dirname $(readlink -f $(basename `pwd`)))
 
 echo
 echo "################################################################## "
@@ -36,7 +36,8 @@ echo "just ./40-build-the-iso-local-again.sh as a user will be enough"
 tput sgr0
 echo "################################################################## "
 echo
-echo sleep 1
+
+sleep 2
 
 # message for BTRFS 
 if 	lsblk -f | grep btrfs > /dev/null 2>&1 ; then
