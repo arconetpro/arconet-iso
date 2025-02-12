@@ -116,22 +116,6 @@ echo
 	echo "Out folder                             : "$outFolder
 	echo "################################################################## "
 
-	if [ "$archisoVersion" == "$archisoRequiredVersion" ]; then
-		tput setaf 2
-		echo "##################################################################"
-		echo "Archiso has the correct version. Continuing ..."
-		echo "##################################################################"
-		tput sgr0
-	else
-	tput setaf 1
-	echo "###################################################################################################"
-	echo "You need to install the correct version of Archiso"
-	echo "Use 'sudo downgrade archiso' to do that"
-	echo "or update your system"
-	echo "###################################################################################################"
-	tput sgr0
-	fi
-
 echo
 echo "################################################################## "
 tput setaf 2
@@ -217,6 +201,20 @@ echo
 	echo
 	echo "Making mkarchiso verbose"
 	sudo sed -i 's/quiet="y"/quiet="n"/g' /usr/bin/mkarchiso
+
+	if [ "$archisoVersion" == "$archisoRequiredVersion" ]; then
+		tput setaf 2
+		echo "##################################################################"
+		echo "Archiso has the correct version. Continuing ..."
+		echo "##################################################################"
+		tput sgr0
+	else
+	tput setaf 1
+	echo "###################################################################################################"
+	echo "It is recommended to always use the latest version of Archiso and update it as needed."
+	echo "###################################################################################################"
+	tput sgr0
+	fi
 
 echo
 echo "################################################################## "
