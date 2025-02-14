@@ -117,7 +117,7 @@ else
     tput sgr0
     echo "################################################################## "
     
-    bash "$installed_dir/get-the-keys-and-mirrors.sh"
+    bash "$installed_dir/get-the-keys-and-mirrors-arcolinux.sh"
     
 fi
 
@@ -150,6 +150,10 @@ echo
 	# that are hosted on chaotics-aur in the packages.x86_64 at the bottom
 
 	chaoticsrepo=false
+
+	if [[ "$chaoticsrepo" == "true" ]]; then
+		bash "$installed_dir/get-the-keys-and-mirrors-chaotic-aur.sh"
+	fi
 	
 	# If you are ready to use your personal repo and personal packages
 	# https://arcolinux.com/use-our-knowledge-and-create-your-own-icon-theme-combo-use-github-to-saveguard-your-work/
@@ -233,13 +237,12 @@ echo
 		exit 1
 	fi
 
+	archisoVersion=$(pacman -Q archiso)
+
 	# Saving current archiso version to readme
 	sed -i "s/\(^archiso-version=\).*/\1$archisoVersion/" ../archiso.readme
 
-	archisoVersion=$(pacman -Q archiso)
-
 	# overview
-
 	
 	echo "################################################################## "
 	tput setaf 2
