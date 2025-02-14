@@ -89,12 +89,18 @@ if 	lsblk -f | grep btrfs > /dev/null 2>&1 ; then
 	tput setaf 3
 	echo "Message"
 	echo
-    echo "This script has been known to cause issues on a Btrfs filesystem"
+    echo "This script may cause issues on a Btrfs filesystem"
     echo "Make backups before continuing"
     echo "Continu at your own risk"
+    echo
+    echo "Press CTRL + C to stop the script now"
     tput sgr0
     echo
-    read -p "Press Enter to continue... CTRL + C to stop"
+    for i in $(seq 10 -1 0); do
+    	echo -ne "Continuing in $i seconds... \r"
+    	sleep 1
+    done
+    echo
 fi
 
 # any distro without our keys and mirrors
