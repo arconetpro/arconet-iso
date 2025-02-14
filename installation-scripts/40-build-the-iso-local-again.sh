@@ -160,8 +160,10 @@ echo
 	    else
 	        if [[ -f "$installed_dir/get-the-keys-and-mirrors-chaotic-aur.sh" ]]; then
 	        	echo "################################################################## "
-				tput setaf 2
-				echo "Installing both Chaotic keyring and mirrorlist"
+				tput setaf 3
+				echo "Installing both Chaotic packages as we are missing"
+				echo "chaotic-keyring and chaotic-mirrorlist"
+    			echo "You can remove them later with pacman -R ..."
 				tput sgr0
 				echo "################################################################## "
 	            bash "$installed_dir/get-the-keys-and-mirrors-chaotic-aur.sh"
