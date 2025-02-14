@@ -75,7 +75,7 @@ tput setaf 3
 echo "Message"
 echo
 echo "Do not run this file as root or add sudo in front"
-echo "just ./40-build-the-iso-local-again.sh as a user will be enough"
+echo "Run this script as a user"
 tput sgr0
 echo "################################################################## "
 echo
@@ -152,12 +152,25 @@ echo
 
 	if [[ "$chaoticsrepo" == "true" ]]; then
 	    if pacman -Q chaotic-keyring &>/dev/null && pacman -Q chaotic-mirrorlist &>/dev/null; then
-	        echo "Chaotic keyring and mirrorlist present"
+	        echo "################################################################## "
+			tput setaf 2
+			echo "Chaotic keyring and mirrorlist are both installed"
+			tput sgr0
+			echo "################################################################## "
 	    else
 	        if [[ -f "$installed_dir/get-the-keys-and-mirrors-chaotic-aur.sh" ]]; then
+	        	echo "################################################################## "
+				tput setaf 2
+				echo "Installing both Chaotic keyring and mirrorlist"
+				tput sgr0
+				echo "################################################################## "
 	            bash "$installed_dir/get-the-keys-and-mirrors-chaotic-aur.sh"
 	        else
-	            echo "Error: Installation script not found at $installed_dir"
+		        echo "################################################################## "
+				tput setaf 1
+				echo "Error: Installation script not found at $installed_dir"
+				tput sgr0
+				echo "################################################################## "          
 	            exit 1
 	        fi
 	    fi
