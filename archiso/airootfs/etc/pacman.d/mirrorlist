@@ -7,7 +7,7 @@ Server = https://mirrors.kernel.org/archlinux/$repo/os/$arch
 
 ##
 ## Arch Linux repository mirrorlist
-## Generated on 2025-02-14
+## Generated on 2025-02-16
 ##
 
 ## Worldwide
@@ -124,6 +124,7 @@ Server = http://muug.ca/mirror/archlinux/$repo/os/$arch
 Server = https://muug.ca/mirror/archlinux/$repo/os/$arch
 Server = http://mirrors.pablonara.com/archlinux/$repo/os/$arch
 Server = https://mirrors.pablonara.com/archlinux/$repo/os/$arch
+Server = https://upstream-1.pablonara.com/archlinux/$repo/os/$arch
 Server = http://mirror.powerfly.ca/archlinux/$repo/os/$arch
 Server = https://mirror.powerfly.ca/archlinux/$repo/os/$arch
 Server = https://mirror.qctronics.com/archlinux/$repo/os/$arch
@@ -317,6 +318,7 @@ Server = https://ftp.agdsn.de/pub/mirrors/archlinux/$repo/os/$arch
 Server = https://appuals.com/archlinux/$repo/os/$arch
 Server = http://artfiles.org/archlinux.org/$repo/os/$arch
 Server = https://mirror.bethselamin.de/$repo/os/$arch
+Server = https://de.repo.c48.uk/arch/$repo/os/$arch
 Server = http://de.mirrors.cicku.me/archlinux/$repo/os/$arch
 Server = https://de.mirrors.cicku.me/archlinux/$repo/os/$arch
 Server = http://mirror.clientvps.com/archlinux/$repo/os/$arch
@@ -590,6 +592,8 @@ Server = https://mirrors.nepalicloud.com/archlinux/$repo/os/$arch
 ## Netherlands
 Server = http://mirror.bouwhuis.network/archlinux/$repo/os/$arch
 Server = https://mirror.bouwhuis.network/archlinux/$repo/os/$arch
+Server = http://mirror.nl.cdn-perfprod.com/archlinux/$repo/os/$arch
+Server = https://mirror.nl.cdn-perfprod.com/archlinux/$repo/os/$arch
 Server = http://nl.mirrors.cicku.me/archlinux/$repo/os/$arch
 Server = https://nl.mirrors.cicku.me/archlinux/$repo/os/$arch
 Server = http://mirror.cj2.nl/archlinux/$repo/os/$arch
@@ -732,6 +736,8 @@ Server = http://repository.su/archlinux/$repo/os/$arch
 Server = https://repository.su/archlinux/$repo/os/$arch
 Server = http://mirror.rol.ru/archlinux/$repo/os/$arch
 Server = https://mirror.rol.ru/archlinux/$repo/os/$arch
+Server = http://web.sketserv.ru/archlinux/$repo/os/$arch
+Server = https://web.sketserv.ru/archlinux/$repo/os/$arch
 Server = https://mirror2.sl-chat.ru/archlinux/$repo/os/$arch
 Server = https://mirror3.sl-chat.ru/archlinux/$repo/os/$arch
 Server = http://mirror.truenetwork.ru/archlinux/$repo/os/$arch
@@ -915,7 +921,6 @@ Server = http://archlinux.uk.mirror.allworldit.com/archlinux/$repo/os/$arch
 Server = https://archlinux.uk.mirror.allworldit.com/archlinux/$repo/os/$arch
 Server = http://mirror.bytemark.co.uk/archlinux/$repo/os/$arch
 Server = https://mirror.bytemark.co.uk/archlinux/$repo/os/$arch
-Server = http://repo.c48.uk/arch/$repo/os/$arch
 Server = https://repo.c48.uk/arch/$repo/os/$arch
 Server = http://gb.mirrors.cicku.me/archlinux/$repo/os/$arch
 Server = https://gb.mirrors.cicku.me/archlinux/$repo/os/$arch
