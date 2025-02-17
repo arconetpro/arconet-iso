@@ -346,7 +346,7 @@ hardinfo2
 libmtp
 laptop-detect
 lsb-release
-mlocate
+plocate
 nomacs-qt6-git
 oh-my-zsh-git
 p7zip
