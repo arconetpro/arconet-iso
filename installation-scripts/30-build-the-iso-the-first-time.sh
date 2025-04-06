@@ -154,7 +154,7 @@ echo
 	# change the variable to true and add the package names
 	# that are hosted on chaotics-aur in the packages.x86_64 at the bottom
 
-	chaoticsrepo=false
+	chaoticsrepo=true
 
 	if [[ "$chaoticsrepo" == "true" ]]; then
 	    if pacman -Q chaotic-keyring &>/dev/null && pacman -Q chaotic-mirrorlist &>/dev/null; then
