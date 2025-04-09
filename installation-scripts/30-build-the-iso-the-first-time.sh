@@ -364,11 +364,16 @@ echo
 	fi
 
 	if [ $chaoticsrepo == true ]; then
-		echo "Adding our chaotics repo to /etc/pacman.conf"
-		printf "\n" | sudo tee -a $buildFolder/archiso/pacman.conf
-		printf "\n" | sudo tee -a $buildFolder/archiso/airootfs/etc/pacman.conf
-		cat chaotics-repo | sudo tee -a $buildFolder/archiso/pacman.conf
-		cat chaotics-repo | sudo tee -a $buildFolder/archiso/airootfs/etc/pacman.conf
+		if ! grep -q "chaotic-aur" $buildFolder/archiso/airootfs/etc/pacman.conf; then
+			echo
+			echo "Adding our chaotics repo to /etc/pacman.conf"
+			printf "\n" | sudo tee -a $buildFolder/archiso/pacman.conf
+			printf "\n" | sudo tee -a $buildFolder/archiso/airootfs/etc/pacman.conf
+			cat chaotics-repo | sudo tee -a $buildFolder/archiso/pacman.conf
+			cat chaotics-repo | sudo tee -a $buildFolder/archiso/airootfs/etc/pacman.conf
+		else
+			echo "Chaotic repo already in /etc/pacman.conf"
+		fi
 	fi
 
 	if [ $chaoticsrepo == false ]; then
